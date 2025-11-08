@@ -1,5 +1,5 @@
 import urllib.request
-import re  # Add this import
+import re  
 import nltk
 from collections import defaultdict, Counter
 import string
@@ -88,10 +88,8 @@ plt.bar(top_words, top_counts)
 plt.xlabel('Word')
 plt.ylabel('Frequency')
 plt.title('Top 10 Most Frequent Words')
-plt.show()
-
 # --- 6. Concordance (word -> sentences that contain it) + Collocations (bigrams/trigrams) ---
-
+import re
 # 6A) Sentence split (simple, in-scope)
 sentences = [s.strip() for s in re.split(r'[.!?]+', cleaned_text) if s.strip()]
 
@@ -123,8 +121,8 @@ def show_concordance(term, k=3):
         print(f"{right[:120]} ..." if right else "")
 
 # Try it:
-# show_concordance("whale")
-# show_concordance("captain")
+show_concordance("whale")
+show_concordance("captain")
 
 # 6B) Collocations with tuples (bigrams & trigrams) using your filtered_words
 bigrams  = list(zip(filtered_words, filtered_words[1:]))
